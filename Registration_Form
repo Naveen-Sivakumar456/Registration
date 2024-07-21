@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome To Registration Form</title>
+    <style>
+        /* Apply a linear gradient background to the entire body */
+        body {
+            height: 100vh; /* Ensure it covers the full viewport height */
+            margin: 0; /* Remove default margin */
+            background: linear-gradient(to right, #ff7e5f, #feb47b); /* Define the gradient colors and direction */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8); /* Add a white background with some transparency */
+            padding: 20px;
+            border-radius: 10px;
+            color: #333; /* Change text color inside container */
+        }
+    </style>
+    <script type="text/javascript">
+        function registration() {
+            var name = document.getElementById("t1").value;
+            var email = document.getElementById("t2").value;
+            var coun = document.getElementById("t3").value;
+            var dob = document.getElementById("t4").value;
+            var gen = document.getElementById("t5").value;
+            var pwd = document.getElementById("t6").value;           
+            var cpwd = document.getElementById("t7").value;
+            var tc = document.getElementById("t8").value;
+
+            var pwd_expression = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;
+            var letters = /^[A-Za-z]+$/;
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            var dat = /^[A-Za-z]+$/;
+            var genderM = /^[A-Za-z]+$/;
+            var genderF = /^[A-Za-z]+$/;
+
+            if (name == '') {
+                alert('Please enter your name');
+            } else if (!letters.test(name)) {
+                alert('Name field required only alphabet characters');
+            } else if (email == '') {
+                alert('Please enter your user email id');
+            } else if (!filter.test(email)) {
+                alert('Invalid email');
+            } else if (coun == '') {
+                alert('Please select a country');
+            } else if (dob == '') {
+                alert('Enter your DOB');
+            } else if (gen == '') {
+                alert('Please enter your gender:');
+            } else if (pwd == '') {
+                alert('Please enter Password');
+            } else if (cpwd == '') {
+                alert('Enter Confirm Password');
+            } else if (!pwd_expression.test(pwd)) {
+                alert('Upper case, Lower case, Special character and Numeric letter are required in Password filed');
+            } else if (pwd != cpwd) {
+                alert('Password not Matched');
+            } else if (document.getElementById("t6").value.length < 8) {
+                alert('Password minimum length is 8');
+            } else if (document.getElementById("t7").value.length > 12) {
+                alert('Password max length is 12');
+            } else {                                           
+                alert('Thank You for Registration & Welcome');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Register Your Account</h2>
+        <table cellspacing="2" align="center" cellpadding="8" border="0">
+            <tr>
+                <td align="right">Enter Name :</td>
+                <td><input type="text" placeholder="Enter user here" id="t1" class="tb" /></td>
+            </tr>
+            <tr>
+                <td align="right">Enter Email ID :</td>
+                <td><input type="text" placeholder="Enter Email ID here" id="t2" class="tb" /></td>
+            </tr>
+            <tr>
+                <td align="right">Select a country :</td>
+                <td>
+                    <select id="t3">
+                        <option value="0" selected="selected">Select a country:</option>
+                        <option value="Albania">Albania</option>
+                        <option value="Algeria">India</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="Zimbabwe">Zimbabwe</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="right">DOB:</td>
+                <td><input type="date" placeholder="Date of Birth" id="t4" class="tb" /></td>
+            </tr>
+            <tr>
+                <td align="right">Gender:</td>
+                <td>
+                    <input type="radio" name="gender" value="Male" id="t5" class="tb"> Male
+                    <input type="radio" name="gender" value="Female" id="t5" class="tb"> Female
+                </td>
+            </tr>
+            <tr>
+                <td align="right">Enter Password :</td>
+                <td><input type="password" placeholder="Enter Password here" id="t6" class="tb" /></td>
+            </tr>
+            <tr>
+                <td align="right">Enter Confirm Password :</td>
+                <td><input type="password" placeholder="Enter Password here" id="t7" class="tb" /></td>
+            </tr>
+            <tr>
+                <td align="right"></td>
+                <td>
+                    <input type="checkbox" value="0" id="t8" class="tb"> I Agree to the Terms and Conditions
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="reset" value="Clear Form" id="res" class="btn" />
+                    <input type="button" value="Submit" class="btn" onclick="registration()" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
